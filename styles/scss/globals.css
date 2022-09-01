@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  padding: 2rem;
+  background-color: #0000a1;
+  color: white;
+  position: fixed;
+  margin-bottom: 3rem;
+}
+
+.navTitle {
+  color: inherit;
+}
+
+.navbarWrapper {
+  width: 94%;
+  margin: 0 auto;
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbarWrapper ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10%;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .navbarWrapper button {
+  display: none;
+  cursor: pointer;
+  font-size: 1.75rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: var(--primaryColor);
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbarWrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .navbarWrapper ul {
+    position: relative;
+    margin: -2rem 0;
+    width: 100%;
+    height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: none;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .navbarWrapper ul li {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    -webkit-animation: fadein 0.5s forwards;
+            animation: fadein 0.5s forwards;
+  }
+  .navbar .navbarWrapper button {
+    display: initial;
+    z-index: 1;
+  }
+}
+
+.showLinks {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background-color: #111;
+    border-bottom: #222 solid .25rem;
+  }
+}
+
+main {
+  width: 98%;
+  margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: white;
+  }
+}
+/*# sourceMappingURL=globals.css.map */

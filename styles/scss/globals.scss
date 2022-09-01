@@ -1,0 +1,23 @@
+$primaryColor : rgb(0, 0, 161);
+$secondaryColor: grey;
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+@import '_navbar.scss';
+
+main {
+ width: 98%;
+ margin: 0 auto;
+}
+
+@media (prefers-color-scheme: dark) {
+body {
+  background-color: #111;
+  color: white;
+ }
+
+}
