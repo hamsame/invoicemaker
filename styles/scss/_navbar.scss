@@ -1,10 +1,9 @@
 .navbar {
  width: 100%;
- padding: 2rem;
  background-color: $primaryColor;
  color: white;
- position: fixed;
- margin-bottom: 3rem;
+ padding: 1.5rem;
+ margin-bottom: 3vh;
 }
 
 .navTitle {
@@ -46,7 +45,7 @@
 
 @keyframes fadein {
  from {
-  opacity: 0.25;
+  opacity: 0.05;
  }
 
  to {
