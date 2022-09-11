@@ -1,16 +1,52 @@
 .formControl {
- label{
+ label {
   display: block;
-  margin: .75vh 0;
+  margin: 1vh 0;
  }
  label,input {
   width: 60%;
-  padding: 4px 0;
+ }
+ input {
+  padding: 4px;
  }
 }
 
-.invoice-form{
+.invoice-form {
 width: 100%;
 margin: 2vh 0;
-padding: 1rem 0.3rem;
+}
+
+.form-buttons button {
+ margin: 1rem 0.2rem;
+ background-color: $primaryColor;
+ border: 1px solid $primaryColor;
+ color: white;
+ padding: 0.5rem 0.75rem;
+ border-radius: 4px;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ cursor: pointer;
+}
+
+.form-section {
+ input,label {
+  width: 100%;
+ }
+ label {
+  padding: 6px;
+ }
+}
+
+@media (prefers-color-scheme: dark) {
+ .invoice-form {
+  width: 100%;
+  margin: 2vh 0;
+  border-color: white;
+  border-radius: 4px;
+ }
+
+ .form-buttons button {
+  border: 1px solid white;
+  background-color: #111;
+ }
 }
