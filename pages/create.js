@@ -1,7 +1,10 @@
 import Head from "next/head"
-import Image from "next/image"
+import { useState } from "react"
+import { BillTo } from "../components/billTo"
+import { Address } from "../components/address"
 
 export default function Create() {
+  const [hideSecondFormInput, setHideSecondFormInput] = useState(true)
   return (
     <>
       <Head>
@@ -13,38 +16,19 @@ export default function Create() {
       <section>
         <h1>Fill in the form to create an invoice</h1>
         <article>
-          <Address />
+          <span>
+            <button onClick={() => setHideSecondFormInput(true)}>
+              Company Info
+            </button>
+            <button onClick={() => setHideSecondFormInput(false)}>
+              Client Info
+            </button>
+          </span>
+          <form className="invoice-form">
+            {hideSecondFormInput ? <Address /> : <BillTo />}
+          </form>
         </article>
       </section>
-    </>
-  )
-}
-
-const Address = () => {
-  return (
-    <>
-      <form className="invoice-form">
-        <div className="formControl">
-          <label htmlFor="companyname">Your Company Name : </label>
-          <input type="text" id="companyname" name="companyname" />
-        </div>
-        <div className="formControl">
-          <label htmlFor="firstline">First Line : </label>
-          <input type="text" id="firstline" name="firstline" />
-        </div>
-        <div className="formControl">
-          <label htmlFor="secondline">Second Line : </label>
-          <input type="text" id="secondline" name="secondline" />
-        </div>
-        <div className="formControl">
-          <label htmlFor="city">City :</label>
-          <input type="text" id="city" name="city" />
-        </div>
-        <div className="formControl">
-          <label htmlFor="postcode">Postcode :</label>
-          <input type="text" id="postcode" name="postcode" />
-        </div>
-      </form>
     </>
   )
 }
