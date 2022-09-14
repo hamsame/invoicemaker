@@ -7,11 +7,10 @@
 
 .navbar {
   width: 100%;
-  padding: 2rem;
   background-color: #0000a1;
   color: white;
-  position: fixed;
-  margin-bottom: 3rem;
+  padding: 1.5rem;
+  margin-bottom: 3vh;
 }
 
 .navTitle {
@@ -61,7 +60,7 @@
 
 @-webkit-keyframes fadein {
   from {
-    opacity: 0.25;
+    opacity: 0.05;
   }
   to {
     opacity: 1;
@@ -70,7 +69,7 @@
 
 @keyframes fadein {
   from {
-    opacity: 0.25;
+    opacity: 0.05;
   }
   to {
     opacity: 1;
@@ -134,13 +133,64 @@
   }
 }
 
-main {
-  width: 98%;
+.formControl label {
+  display: block;
+  margin: 1vh 0;
+}
+
+.formControl label, .formControl input {
+  width: 60%;
+}
+
+.formControl input {
+  padding: 4px;
+}
+
+.invoice-form {
+  width: 100%;
+  margin: 2vh 0;
+}
+
+.form-buttons button {
+  margin: 1rem 0.2rem;
+  background-color: #0000a1;
+  border: 1px solid #0000a1;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.form-section input, .form-section label {
+  width: 100%;
+}
+
+.form-section label {
+  padding: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .invoice-form {
+    width: 100%;
+    margin: 2vh 0;
+    border-color: white;
+    border-radius: 4px;
+  }
+  .form-buttons button {
+    border: 1px solid white;
+    background-color: #111;
+  }
+}
+
+main.page {
+  width: 96%;
   margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  .navbar, body {
     background-color: #111;
     color: white;
   }
