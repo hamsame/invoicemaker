@@ -2,7 +2,8 @@ import { useState } from "react"
 export const BillTo = () => {
   const [clientInfo, setClientInfo] = useState({
     clientName: "",
-    clientAddress: "",
+    clientFirstline: "",
+    clientSecondline: "",
     clientCity: "",
     clientPostcode: "",
     clientPhone: "",

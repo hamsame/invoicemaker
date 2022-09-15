@@ -4,7 +4,7 @@ import { BillTo } from "../components/billTo"
 import { Address } from "../components/address"
 
 export default function Create() {
-  const [hideSecondFormInput, setHideSecondFormInput] = useState(true)
+  const [showClientForm, setShowClientForm] = useState(true)
   return (
     <>
       <Head>
@@ -20,15 +20,20 @@ export default function Create() {
         <h1>Fill in the form to create an invoice</h1>
         <article className="form-section">
           <span className="form-buttons">
-            <button onClick={() => setHideSecondFormInput(true)}>
+            <button onClick={() => setShowClientForm(true)}>
               Company Info
             </button>
-            <button onClick={() => setHideSecondFormInput(false)}>
+            <button onClick={() => setShowClientForm(false)}>
               Client Info
             </button>
           </span>
           <form className="invoice-form">
-            {hideSecondFormInput ? <Address /> : <BillTo />}
+            <span className={showClientForm ? "" : "hideForm"}>
+              <Address />
+            </span>
+            <span className={showClientForm ? "hideForm" : ""}>
+              <BillTo />
+            </span>
           </form>
         </article>
       </section>
