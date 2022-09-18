@@ -1,14 +1,5 @@
 import { useState } from "react"
-export const BillTo = () => {
-  const [clientInfo, setClientInfo] = useState({
-    clientName: "",
-    clientFirstline: "",
-    clientSecondline: "",
-    clientCity: "",
-    clientPostcode: "",
-    clientPhone: "",
-  })
-
+export const BillTo = ({ clientInfo, setClientInfo }) => {
   const handleClientChange = (e) => {
     e.preventDefault()
     const name = e.target.name

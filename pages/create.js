@@ -5,6 +5,25 @@ import { Address } from "../components/address"
 
 export default function Create() {
   const [showClientForm, setShowClientForm] = useState(true)
+
+  const [companyInfo, setCompanyInfo] = useState({
+    companyname: "",
+    firstline: "",
+    secondline: "",
+    city: "",
+    postcode: "",
+    postcode: "",
+    phone: "",
+  })
+
+  const [clientInfo, setClientInfo] = useState({
+    clientName: "",
+    clientFirstline: "",
+    clientSecondline: "",
+    clientCity: "",
+    clientPostcode: "",
+    clientPhone: "",
+  })
   return (
     <>
       <Head>
@@ -29,10 +48,13 @@ export default function Create() {
           </span>
           <form className="invoice-form">
             <span className={showClientForm ? "" : "hideForm"}>
-              <Address />
+              <Address
+                setCompanyInfo={setCompanyInfo}
+                companyInfo={companyInfo}
+              />
             </span>
             <span className={showClientForm ? "hideForm" : ""}>
-              <BillTo />
+              <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
             </span>
           </form>
         </article>
