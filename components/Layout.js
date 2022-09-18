@@ -7,7 +7,7 @@ function Layout({ children }) {
   return (
     <>
       <Navbar />
-      {!smallNav ? <main>{children}</main> : null}
+      {!smallNav ? <main className="page">{children}</main> : null}
     </>
   )
 }

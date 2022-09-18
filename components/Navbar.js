@@ -19,8 +19,8 @@ function Navbar() {
           </button>
           <ul className={smallNav ? "showLinks" : ""}>
             <li onClick={() => setSmallNav(false)}>
-              <Link href="/basic">
-                <a>Get Started</a>
+              <Link href="/create">
+                <a>Create</a>
               </Link>
             </li>
           </ul>
