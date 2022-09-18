@@ -1,15 +1,5 @@
 import { useState } from "react"
-export const Address = () => {
-  const [companyInfo, setCompanyInfo] = useState({
-    companyname: "",
-    firstline: "",
-    secondline: "",
-    city: "",
-    postcode: "",
-    postcode: "",
-    phone: "",
-  })
-
+export const Address = ({ setCompanyInfo, companyInfo }) => {
   const handleCompanyChange = (e) => {
     e.preventDefault()
     const name = e.target.name

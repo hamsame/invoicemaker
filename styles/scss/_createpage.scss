@@ -37,6 +37,10 @@ margin: 2vh 0;
  }
 }
 
+.hideForm {
+ display: none;
+}
+
 @media (prefers-color-scheme: dark) {
  .invoice-form {
   width: 100%;

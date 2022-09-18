@@ -171,6 +171,10 @@
   padding: 6px;
 }
 
+.hideForm {
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   .invoice-form {
     width: 100%;
