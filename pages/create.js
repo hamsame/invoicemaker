@@ -35,30 +35,62 @@ export default function Create() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
-        <h1>Fill in the form to create an invoice</h1>
-        <article className="form-section">
-          <span className="form-buttons">
-            <button onClick={() => setShowClientForm(true)}>
-              Company Info
-            </button>
-            <button onClick={() => setShowClientForm(false)}>
-              Client Info
-            </button>
-          </span>
-          <form className="invoice-form">
-            <span className={showClientForm ? "" : "hideForm"}>
-              <Address
-                setCompanyInfo={setCompanyInfo}
-                companyInfo={companyInfo}
-              />
+      <main>
+        <h2>Fill in the form to create an invoice</h2>
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 2fr",
+            width: "100%",
+            gap: "1.5rem",
+          }}
+        >
+          <article className="form-section">
+            <span className="form-buttons">
+              <button onClick={() => setShowClientForm(true)}>
+                Company Info
+              </button>
+              <button onClick={() => setShowClientForm(false)}>
+                Client Info
+              </button>
             </span>
-            <span className={showClientForm ? "hideForm" : ""}>
-              <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
-            </span>
-          </form>
-        </article>
-      </section>
+            <form className="invoice-form">
+              <span className={showClientForm ? "" : "hideForm"}>
+                <Address
+                  setCompanyInfo={setCompanyInfo}
+                  companyInfo={companyInfo}
+                />
+              </span>
+              <span className={showClientForm ? "hideForm" : ""}>
+                <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
+              </span>
+            </form>
+          </article>
+          <article>
+            <InvoiceHeader companyInfo={companyInfo} />
+          </article>
+        </section>
+      </main>
     </>
+  )
+}
+
+const InvoiceHeader = ({ companyInfo }) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        padding: "1.5rem",
+        height: "100%",
+        background: "blue",
+      }}
+    >
+      <h2>Invoice</h2>
+      <ul style={{ listStyle: "none" }}>
+        {Object.values(companyInfo).map((val, index) => {
+          return <li key={index}>{val}</li>
+        })}
+      </ul>
+    </div>
   )
 }
