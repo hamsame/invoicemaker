@@ -151,6 +151,37 @@
   margin: 2vh 0;
 }
 
+.invoice {
+  background-color: white;
+  color: #111;
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem;
+}
+
+.invoice ul {
+  list-style: none;
+}
+
+.invoice-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.invoice-header ul {
+  list-style: none;
+  -webkit-column-count: 2;
+          column-count: 2;
+}
+
+.invoice-header ul li {
+  margin: 0.2vh 0;
+}
+
 .form-buttons button {
   margin: 1rem 0.2rem;
   background-color: #0000a1;
@@ -159,7 +190,6 @@
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
 }
 

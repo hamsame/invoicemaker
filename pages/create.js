@@ -40,7 +40,7 @@ export default function Create() {
         <section
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 2fr",
+            gridTemplateColumns: "1fr 4fr",
             width: "100%",
             gap: "1.5rem",
           }}
@@ -66,31 +66,35 @@ export default function Create() {
               </span>
             </form>
           </article>
-          <article>
-            <InvoiceHeader companyInfo={companyInfo} />
-          </article>
+          <Invoice
+            companyInfo={companyInfo}
+            clientInfo={clientInfo}
+            className="invoice"
+          />
         </section>
       </main>
     </>
   )
 }
 
-const InvoiceHeader = ({ companyInfo }) => {
+const Invoice = ({ companyInfo, className, clientInfo }) => {
+  const populateUI = (ObjectName) => {
+    return Object.values(ObjectName).map((val, index) => {
+      return <li key={index}>{val}</li>
+    })
+  }
   return (
-    <div
-      style={{
-        width: "100%",
-        padding: "1.5rem",
-        height: "100%",
-        background: "blue",
-      }}
-    >
-      <h2>Invoice</h2>
-      <ul style={{ listStyle: "none" }}>
-        {Object.values(companyInfo).map((val, index) => {
-          return <li key={index}>{val}</li>
-        })}
-      </ul>
-    </div>
+    <article className={className}>
+      <header className="invoice-header">
+        <h2>Invoice</h2>
+        <ul>{populateUI(companyInfo)}</ul>
+      </header>
+      <main>
+        <ul>
+          <b className="info-heading">Billed To: </b>
+          {populateUI(clientInfo)}
+        </ul>
+      </main>
+    </article>
   )
 }
