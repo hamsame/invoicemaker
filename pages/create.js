@@ -35,30 +35,66 @@ export default function Create() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section>
-        <h1>Fill in the form to create an invoice</h1>
-        <article className="form-section">
-          <span className="form-buttons">
-            <button onClick={() => setShowClientForm(true)}>
-              Company Info
-            </button>
-            <button onClick={() => setShowClientForm(false)}>
-              Client Info
-            </button>
-          </span>
-          <form className="invoice-form">
-            <span className={showClientForm ? "" : "hideForm"}>
-              <Address
-                setCompanyInfo={setCompanyInfo}
-                companyInfo={companyInfo}
-              />
+      <main>
+        <h2>Fill in the form to create an invoice</h2>
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 4fr",
+            width: "100%",
+            gap: "1.5rem",
+          }}
+        >
+          <article className="form-section">
+            <span className="form-buttons">
+              <button onClick={() => setShowClientForm(true)}>
+                Company Info
+              </button>
+              <button onClick={() => setShowClientForm(false)}>
+                Client Info
+              </button>
             </span>
-            <span className={showClientForm ? "hideForm" : ""}>
-              <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
-            </span>
-          </form>
-        </article>
-      </section>
+            <form className="invoice-form">
+              <span className={showClientForm ? "" : "hideForm"}>
+                <Address
+                  setCompanyInfo={setCompanyInfo}
+                  companyInfo={companyInfo}
+                />
+              </span>
+              <span className={showClientForm ? "hideForm" : ""}>
+                <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
+              </span>
+            </form>
+          </article>
+          <Invoice
+            companyInfo={companyInfo}
+            clientInfo={clientInfo}
+            className="invoice"
+          />
+        </section>
+      </main>
     </>
+  )
+}
+
+const Invoice = ({ companyInfo, className, clientInfo }) => {
+  const populateUI = (ObjectName) => {
+    return Object.values(ObjectName).map((val, index) => {
+      return <li key={index}>{val}</li>
+    })
+  }
+  return (
+    <article className={className}>
+      <header className="invoice-header">
+        <h2>Invoice</h2>
+        <ul>{populateUI(companyInfo)}</ul>
+      </header>
+      <main>
+        <ul>
+          <b className="info-heading">Billed To: </b>
+          {populateUI(clientInfo)}
+        </ul>
+      </main>
+    </article>
   )
 }
