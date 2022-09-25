@@ -2,10 +2,10 @@ import Head from "next/head"
 import { useState } from "react"
 import { BillTo } from "../components/billTo"
 import { Address } from "../components/address"
+import { ServicesForm } from "../components/serviceForm"
 
 export default function Create() {
   const [showClientForm, setShowClientForm] = useState(true)
-
   const [companyInfo, setCompanyInfo] = useState({
     companyname: "",
     firstline: "",
@@ -24,6 +24,32 @@ export default function Create() {
     clientPostcode: "",
     clientPhone: "",
   })
+
+  const [service, setService] = useState({
+    serviceName: "",
+    quantity: "",
+    unitCost: "",
+    get priceTotal() {
+      return Number(this.qty) * Number(this.cost)
+    },
+  })
+
+  const handleServiceBtn = (e) => {
+    e.preventDefault()
+    if (service.serviceName && service.quantity && service.unitCost) {
+      let newService = { ...service, id: new Date().getTime().toString() }
+      setServicesSold([...servicesSold, newService])
+      setService({
+        serviceName: "",
+        quantity: "",
+        unitCost: "",
+        get priceTotal() {
+          return Number(this.qty) * Number(this.cost)
+        },
+      })
+    }
+  }
+  const [servicesSold, setServicesSold] = useState([])
   return (
     <>
       <Head>
@@ -54,8 +80,8 @@ export default function Create() {
                 Client Info
               </button>
             </span>
-            <form className="invoice-form">
-              <span className={showClientForm ? "" : "hideForm"}>
+            <form className="invoice-form" onSubmit={handleServiceBtn}>
+              {/* <span className={showClientForm ? "" : "hideForm"}>
                 <Address
                   setCompanyInfo={setCompanyInfo}
                   companyInfo={companyInfo}
@@ -63,12 +89,23 @@ export default function Create() {
               </span>
               <span className={showClientForm ? "hideForm" : ""}>
                 <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
+              </span> */}
+              <span>
+                <ServicesForm
+                  service={service}
+                  setService={setService}
+                  servicesSold={servicesSold}
+                  setServicesSold={setServicesSold}
+                  handleServiceBtn={handleServiceBtn}
+                />
               </span>
             </form>
           </article>
           <Invoice
             companyInfo={companyInfo}
             clientInfo={clientInfo}
+            servicesSold={servicesSold}
+            setServicesSold={setServicesSold}
             className="invoice"
           />
         </section>
@@ -77,7 +114,7 @@ export default function Create() {
   )
 }
 
-const Invoice = ({ companyInfo, className, clientInfo }) => {
+const Invoice = ({ companyInfo, className, clientInfo, servicesSold }) => {
   const populateUI = (ObjectName) => {
     return Object.values(ObjectName).map((val, index) => {
       return <li key={index}>{val}</li>
@@ -95,6 +132,24 @@ const Invoice = ({ companyInfo, className, clientInfo }) => {
           {populateUI(clientInfo)}
         </ul>
       </main>
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Unit Cost</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+        {servicesSold.map((item, index) => {
+          return (
+            <tr key={index}>
+              <td>{item.serviceName}</td>
+              <td>{item.unitCost}</td>
+              <td>{item.quantity}</td>
+              <td>{item.unitCost * item.quantity}</td>
+            </tr>
+          )
+        })}
+      </table>
     </article>
   )
 }
