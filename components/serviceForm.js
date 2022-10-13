@@ -17,26 +17,33 @@ export const ServicesForm = ({ service, setService }) => {
           name="serviceName"
           value={service.serviceName}
           onChange={handleService}
+          required
+          minLength={1}
+          title="Service should only include characters a to z."
         />
       </div>
       <div className="formControl">
         <label htmlFor="unitCost">Unit Cost: </label>
         <input
-          type="text"
+          type="number"
           id="unitCost"
           name="unitCost"
           value={service.unitCost}
           onChange={handleService}
+          required
+          minLength={1}
         />
       </div>
       <div className="formControl">
         <label htmlFor="quantity">Quantity: </label>
         <input
-          type="text"
+          type="number"
           id="quantity"
           name="quantity"
           value={service.quantity}
           onChange={handleService}
+          minLength={1}
+          required
         />
       </div>
       <button type="submit" className="submit-btn">

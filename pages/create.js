@@ -34,6 +34,7 @@ export default function Create() {
     serviceName: "",
     quantity: "",
     unitCost: "",
+    id: new Date().getTime().toString(),
     get priceTotal() {
       return Number(this.qty) * Number(this.cost)
     },
