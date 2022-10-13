@@ -182,15 +182,32 @@
   margin: 0.2vh 0;
 }
 
-.form-buttons button {
-  margin: 1rem 0.2rem;
-  background-color: #0000a1;
-  border: 1px solid #0000a1;
-  color: white;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-  text-transform: uppercase;
+.form-buttons {
+  width: 100%;
+  margin: 3vh auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.25rem;
+}
+
+.form-buttons > button,
+.submit-btn {
   cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px;
+  background: none;
+  border: 1px solid black;
+}
+
+.submit-btn {
+  width: 100%;
+  margin: 2vh auto;
 }
 
 .form-section input, .form-section label {
@@ -212,9 +229,9 @@
     border-color: white;
     border-radius: 4px;
   }
-  .form-buttons button {
-    border: 1px solid white;
-    background-color: #111;
+  .form-buttons > button, .submit-btn {
+    border-color: white;
+    color: white;
   }
 }
 

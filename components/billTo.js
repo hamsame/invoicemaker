@@ -6,7 +6,6 @@ export const BillTo = ({ clientInfo, setClientInfo }) => {
     const value = e.target.value
     let newInfo = { ...clientInfo, [name]: value }
     setClientInfo(newInfo)
-    localStorage.setItem("clientInfo", JSON.stringify(clientInfo))
   }
 
   return (

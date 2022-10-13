@@ -39,16 +39,30 @@ margin: 2vh 0;
  }
 }
 
-.form-buttons button {
- margin: 1rem 0.2rem;
- background-color: $primaryColor;
- border: 1px solid $primaryColor;
- color: white;
- padding: 0.5rem 0.75rem;
- border-radius: 4px;
- text-transform: uppercase;
- cursor: pointer;
+.form-buttons {
+width: 100%;
+margin: 3vh auto;
+display: flex;
+justify-content: center;
+gap: 0.25rem;
 }
+
+.form-buttons > button, 
+.submit-btn {
+ cursor: pointer;
+ flex: 1;
+ padding: 5px;
+ background: none;
+ border: 1px solid black;
+}
+
+.submit-btn {
+ width: 100%;
+ margin: 2vh auto;
+}
+
+
+
 
 .form-section {
  input,label {
@@ -71,8 +85,8 @@ margin: 2vh 0;
   border-radius: 4px;
  }
 
- .form-buttons button {
-  border: 1px solid white;
-  background-color: #111;
- }
+.form-buttons > button,.submit-btn {
+ border-color: white;
+ color: white;
+}
 }
