@@ -6,7 +6,6 @@ export const Address = ({ setCompanyInfo, companyInfo }) => {
     const value = e.target.value
     let newInfo = { ...companyInfo, [name]: value }
     setCompanyInfo(newInfo)
-    localStorage.setItem("companyInfo", JSON.stringify(companyInfo))
   }
   return (
     <>

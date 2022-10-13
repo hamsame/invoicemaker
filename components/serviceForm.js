@@ -39,7 +39,9 @@ export const ServicesForm = ({ service, setService }) => {
           onChange={handleService}
         />
       </div>
-      <button type="submit">Add Service</button>
+      <button type="submit" className="submit-btn">
+        Add Service
+      </button>
     </>
   )
 }

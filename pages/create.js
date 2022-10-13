@@ -3,9 +3,14 @@ import { useState } from "react"
 import { BillTo } from "../components/billTo"
 import { Address } from "../components/address"
 import { ServicesForm } from "../components/serviceForm"
+import { Invoice } from "../components/invoice"
 
 export default function Create() {
-  const [showClientForm, setShowClientForm] = useState(true)
+  const [showClientForm, setShowClientForm] = useState({
+    form1: true,
+    form2: false,
+    form3: false,
+  })
   const [companyInfo, setCompanyInfo] = useState({
     companyname: "",
     firstline: "",
@@ -66,31 +71,58 @@ export default function Create() {
         <section
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 4fr",
+            gridTemplateColumns: "1fr 3fr",
             width: "100%",
             gap: "1.5rem",
           }}
         >
           <article className="form-section">
             <span className="form-buttons">
-              <button onClick={() => setShowClientForm(true)}>
-                Company Info
+              <button
+                onClick={() =>
+                  setShowClientForm({
+                    form1: true,
+                    form2: false,
+                    form3: false,
+                  })
+                }
+              >
+                Company
               </button>
-              <button onClick={() => setShowClientForm(false)}>
-                Client Info
+              <button
+                onClick={() =>
+                  setShowClientForm({
+                    form1: false,
+                    form2: true,
+                    form3: false,
+                  })
+                }
+              >
+                Client
+              </button>
+              <button
+                onClick={() =>
+                  setShowClientForm({
+                    form1: false,
+                    form2: false,
+                    form3: true,
+                  })
+                }
+              >
+                Services
               </button>
             </span>
             <form className="invoice-form" onSubmit={handleServiceBtn}>
-              {/* <span className={showClientForm ? "" : "hideForm"}>
+              <span className={!showClientForm.form1 ? "hideForm" : ""}>
                 <Address
                   setCompanyInfo={setCompanyInfo}
                   companyInfo={companyInfo}
                 />
               </span>
-              <span className={showClientForm ? "hideForm" : ""}>
+              <span className={!showClientForm.form2 ? "hideForm" : ""}>
                 <BillTo setClientInfo={setClientInfo} clientInfo={clientInfo} />
-              </span> */}
-              <span>
+              </span>
+              <span className={!showClientForm.form3 ? "hideForm" : ""}>
                 <ServicesForm
                   service={service}
                   setService={setService}
@@ -111,45 +143,5 @@ export default function Create() {
         </section>
       </main>
     </>
-  )
-}
-
-const Invoice = ({ companyInfo, className, clientInfo, servicesSold }) => {
-  const populateUI = (ObjectName) => {
-    return Object.values(ObjectName).map((val, index) => {
-      return <li key={index}>{val}</li>
-    })
-  }
-  return (
-    <article className={className}>
-      <header className="invoice-header">
-        <h2>Invoice</h2>
-        <ul>{populateUI(companyInfo)}</ul>
-      </header>
-      <main>
-        <ul>
-          <b className="info-heading">Billed To: </b>
-          {populateUI(clientInfo)}
-        </ul>
-      </main>
-      <table>
-        <tr>
-          <th>Service</th>
-          <th>Unit Cost</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-        {servicesSold.map((item, index) => {
-          return (
-            <tr key={index}>
-              <td>{item.serviceName}</td>
-              <td>{item.unitCost}</td>
-              <td>{item.quantity}</td>
-              <td>{item.unitCost * item.quantity}</td>
-            </tr>
-          )
-        })}
-      </table>
-    </article>
   )
 }
