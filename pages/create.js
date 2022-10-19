@@ -69,14 +69,7 @@ export default function Create() {
 
       <main>
         <h2>Fill in the form to create an invoice</h2>
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 3fr",
-            width: "100%",
-            gap: "1.5rem",
-          }}
-        >
+        <section className="container">
           <article className="form-section">
             <span className="form-buttons">
               <button

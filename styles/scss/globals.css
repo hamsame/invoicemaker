@@ -133,17 +133,21 @@
   }
 }
 
-.formControl label {
-  display: block;
-  margin: 1vh 0;
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  width: 100%;
+  gap: 2rem;
 }
 
-.formControl label, .formControl input {
-  width: 60%;
-}
-
-.formControl input {
-  padding: 4px;
+@media (max-width: 768px) {
+  .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 0rem;
+  }
 }
 
 .invoice-form {
@@ -172,14 +176,57 @@
           justify-content: space-between;
 }
 
+.invoice-header h2 {
+  margin: 2vh 0;
+}
+
 .invoice-header ul {
   list-style: none;
-  -webkit-column-count: 2;
-          column-count: 2;
 }
 
 .invoice-header ul li {
   margin: 0.2vh 0;
+}
+
+.invoice-details {
+  margin: 0 0 2vh;
+}
+
+table {
+  margin: 7.5vh 0;
+  width: 100%;
+  text-align: left;
+}
+
+table tr {
+  height: 2rem;
+}
+
+table .hide-on-show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .invoice-form {
+    width: 100%;
+    margin: 2vh 0;
+    border-color: white;
+    border-radius: 4px;
+  }
+}
+
+.formControl label {
+  display: block;
+  margin: 1vh 0;
+}
+
+.formControl label,
+.formControl input {
+  width: 60%;
+}
+
+.formControl input {
+  padding: 4px;
 }
 
 .form-buttons {
@@ -210,7 +257,8 @@
   margin: 2vh auto;
 }
 
-.form-section input, .form-section label {
+.form-section input,
+.form-section label {
   width: 100%;
 }
 
@@ -223,13 +271,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .invoice-form {
-    width: 100%;
-    margin: 2vh 0;
-    border-color: white;
-    border-radius: 4px;
-  }
-  .form-buttons > button, .submit-btn {
+  .form-buttons > button,
+  .submit-btn {
     border-color: white;
     color: white;
   }
@@ -241,7 +284,8 @@ main.page {
 }
 
 @media (prefers-color-scheme: dark) {
-  .navbar, body {
+  .navbar,
+  body {
     background-color: #111;
     color: white;
   }

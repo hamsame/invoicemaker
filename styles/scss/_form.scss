@@ -1,0 +1,57 @@
+.formControl {
+  label {
+    display: block;
+    margin: 1vh 0;
+  }
+  label,
+  input {
+    width: 60%;
+  }
+  input {
+    padding: 4px;
+  }
+}
+
+.form-buttons {
+  width: 100%;
+  margin: 3vh auto;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.form-buttons > button,
+.submit-btn {
+  cursor: pointer;
+  flex: 1;
+  padding: 5px;
+  background: none;
+  border: 1px solid black;
+}
+
+.submit-btn {
+  width: 100%;
+  margin: 2vh auto;
+}
+
+.form-section {
+  input,
+  label {
+    width: 100%;
+  }
+  label {
+    padding: 6px;
+  }
+}
+
+.hideForm {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-buttons > button,
+  .submit-btn {
+    border-color: white;
+    color: white;
+  }
+}

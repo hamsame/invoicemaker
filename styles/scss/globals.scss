@@ -1,22 +1,25 @@
-$primaryColor : rgb(0, 0, 161);
+$primaryColor: rgb(0, 0, 161);
 $secondaryColor: grey;
 
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@import '_navbar.scss';
-@import '_createpage.scss';
+@import "_navbar.scss";
+@import "_createpage.scss";
+@import "_invoice.scss";
+@import "_form.scss";
 
 main.page {
- width: 96%;
- margin: 0 auto;
+  width: 96%;
+  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
-  .navbar,body {
+  .navbar,
+  body {
     background-color: #111;
     color: white;
   }

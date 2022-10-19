@@ -34,13 +34,21 @@ export const Invoice = ({
   }
 
   useEffect(() => {
-    getSubTotal()
+    getSubTotal(),
+      (document.getElementById("randomNum").innerHTML =
+        Math.floor(Math.random() * 90000) + 10000)
   }, [servicesSold])
 
   return (
     <article className={className}>
       <header className="invoice-header">
-        <h2>Invoice</h2>
+        <div className="invoice-details">
+          <h2>Invoice</h2>
+          <p>
+            Invoice Number: <span id="randomNum"></span>
+          </p>
+          <p>Date Of Issue: {new Date().toLocaleDateString()}</p>
+        </div>
         <ul>{companyInfo && populateUI(companyInfo)}</ul>
       </header>
       <main>
@@ -49,23 +57,21 @@ export const Invoice = ({
           {clientInfo && populateUI(clientInfo)}
         </ul>
       </main>
-      <table style={{ margin: "7.5vh 0", width: "100%", textAlign: "left" }}>
+      <table>
         <thead>
           <tr>
             <th>Service</th>
             <th>Unit Cost</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th className="hide-on-show">Delete Service(s)</th>
           </tr>
         </thead>
         <tbody>
           {servicesSold &&
             servicesSold.map((item, index) => {
               return (
-                <tr
-                  key={index}
-                  style={{ padding: "2rem 0", background: "aqua" }}
-                >
+                <tr key={index}>
                   <td>{item && item.serviceName}</td>
                   <td>{item && item.unitCost}</td>
                   <td>{item && item.quantity}</td>
@@ -85,6 +91,11 @@ export const Invoice = ({
       </table>
       <p id="t">Subtotal: </p>
       <p id="total"></p>
+
+      <sub>
+        Terms: Payment is due within seven working days of receiving this
+        invoice.
+      </sub>
     </article>
   )
 }
