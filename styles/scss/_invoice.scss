@@ -1,0 +1,64 @@
+.invoice-form {
+  width: 100%;
+  margin: 2vh 0;
+}
+
+.invoice {
+  background-color: white;
+  color: #111;
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem;
+  ul {
+    list-style: none;
+  }
+}
+
+.invoice.view {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.invoice-header {
+  h2 {
+    margin: 2vh 0;
+  }
+  display: flex;
+  justify-content: space-between;
+  ul {
+    list-style: none;
+    li {
+      margin: 0.2vh 0;
+    }
+  }
+}
+
+.invoice-details {
+  margin: 0 0 2vh;
+}
+
+table {
+  margin: 7.5vh 0;
+  width: 100%;
+  text-align: left;
+
+  tr {
+    height: 2rem;
+  }
+
+  .hide-on-show {
+    display: block;
+  }
+  .hide-on-show.true {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .invoice-form {
+    width: 100%;
+    margin: 2vh 0;
+    border-color: white;
+    border-radius: 4px;
+  }
+}

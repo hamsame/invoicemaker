@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useState } from "react"
 import { BillTo } from "../components/billTo"
 import { Address } from "../components/address"
+import { Bar } from "../components/bar"
 import { ServicesForm } from "../components/serviceForm"
 import { Invoice } from "../components/invoice"
 
@@ -69,14 +70,7 @@ export default function Create() {
 
       <main>
         <h2>Fill in the form to create an invoice</h2>
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 3fr",
-            width: "100%",
-            gap: "1.5rem",
-          }}
-        >
+        <section className="container">
           <article className="form-section">
             <span className="form-buttons">
               <button
@@ -134,13 +128,16 @@ export default function Create() {
               </span>
             </form>
           </article>
-          <Invoice
-            companyInfo={companyInfo}
-            clientInfo={clientInfo}
-            servicesSold={servicesSold}
-            setServicesSold={setServicesSold}
-            className="invoice"
-          />
+          <div>
+            <Bar />
+            <Invoice
+              companyInfo={companyInfo}
+              clientInfo={clientInfo}
+              servicesSold={servicesSold}
+              setServicesSold={setServicesSold}
+              className="invoice"
+            />
+          </div>
         </section>
       </main>
     </>
