@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useState } from "react"
 import { BillTo } from "../components/billTo"
 import { Address } from "../components/address"
+import { Bar } from "../components/bar"
 import { ServicesForm } from "../components/serviceForm"
 import { Invoice } from "../components/invoice"
 
@@ -127,13 +128,16 @@ export default function Create() {
               </span>
             </form>
           </article>
-          <Invoice
-            companyInfo={companyInfo}
-            clientInfo={clientInfo}
-            servicesSold={servicesSold}
-            setServicesSold={setServicesSold}
-            className="invoice"
-          />
+          <div>
+            <Bar />
+            <Invoice
+              companyInfo={companyInfo}
+              clientInfo={clientInfo}
+              servicesSold={servicesSold}
+              setServicesSold={setServicesSold}
+              className="invoice"
+            />
+          </div>
         </section>
       </main>
     </>

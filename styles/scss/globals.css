@@ -167,6 +167,11 @@
   list-style: none;
 }
 
+.invoice.view {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
 .invoice-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,6 +209,10 @@ table tr {
 
 table .hide-on-show {
   display: block;
+}
+
+table .hide-on-show.true {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -275,6 +284,33 @@ table .hide-on-show {
   .submit-btn {
     border-color: white;
     color: white;
+  }
+}
+
+.bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.5%;
+}
+
+.bar > button {
+  cursor: pointer;
+  padding: 5px;
+  background: 0;
+  border: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bar > button {
+    background-color: #111;
+    color: white;
+    border: white 1px solid;
   }
 }
 
