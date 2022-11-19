@@ -5,6 +5,8 @@ import { Address } from "../components/address"
 import { Bar } from "../components/bar"
 import { ServicesForm } from "../components/serviceForm"
 import { Invoice } from "../components/invoice"
+import jsPDF from "jspdf"
+import html2canvas from "html2canvas"
 
 export default function Create() {
   const [showClientForm, setShowClientForm] = useState({
@@ -40,6 +42,36 @@ export default function Create() {
       return Number(this.qty) * Number(this.cost)
     },
   })
+
+  const viewInvoice = () => {
+    let elements = document.getElementsByClassName("hide-on-show")
+    const hiddenElements = [].slice.call(elements)
+    hiddenElements.map((el) => {
+      el.classList.add("true")
+    })
+    document.querySelector(".form-section").style.display = "none"
+    document.querySelector(".container").style.display = "block"
+    document.querySelector(".invoice").style.height = "100%"
+    document.querySelector(".invoice").classList.add("view")
+  }
+
+  const saveInvoice = () => {
+    viewInvoice()
+    setTimeout(() => {
+      const invoice = document.querySelector(".invoice")
+      html2canvas(invoice).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png")
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "in",
+          format: [8.27, 11.6944444],
+        })
+        pdf.addImage(imgData, "JPEG", 0, 0)
+        // pdf.output('dataurlnewwindow');
+        pdf.save("download.pdf")
+      })
+    }, 200)
+  }
 
   const handleServiceBtn = (e) => {
     e.preventDefault()
@@ -129,7 +161,7 @@ export default function Create() {
             </form>
           </article>
           <div>
-            <Bar />
+            <Bar viewInvoice={viewInvoice} saveInvoice={saveInvoice} />
             <Invoice
               companyInfo={companyInfo}
               clientInfo={clientInfo}

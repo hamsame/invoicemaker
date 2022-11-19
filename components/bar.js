@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-export const Bar = () => {
+export const Bar = ({ viewInvoice, saveInvoice }) => {
   const [viewMode, setViewMode] = useState(false)
   const toggleView = () => {
     setViewMode(!viewMode)
@@ -9,18 +9,6 @@ export const Bar = () => {
     } else {
       return prepInvoice()
     }
-  }
-
-  const viewInvoice = () => {
-    let elements = document.getElementsByClassName("hide-on-show")
-    const hiddenElements = [].slice.call(elements)
-    hiddenElements.map((el) => {
-      el.classList.add("true")
-    })
-    document.querySelector(".form-section").style.display = "none"
-    document.querySelector(".container").style.display = "block"
-    document.querySelector(".invoice").style.height = "100%"
-    document.querySelector(".invoice").classList.add("view")
   }
 
   const prepInvoice = () => {
@@ -44,7 +32,7 @@ export const Bar = () => {
   return (
     <div className="bar">
       <button onClick={() => toggleView()}>{viewMode ? "View" : "Edit"}</button>
-      <button>Save</button>
+      <button onClick={() => saveInvoice()}>Save</button>
     </div>
   )
 }
