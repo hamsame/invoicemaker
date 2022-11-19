@@ -57,7 +57,7 @@ export const Invoice = ({
           {clientInfo && populateUI(clientInfo)}
         </ul>
       </main>
-      <table>
+      <table className="services-listed">
         <thead>
           <tr>
             <th>Service</th>
