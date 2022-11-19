@@ -286,6 +286,9 @@ table .hide-on-show.true {
     border-color: white;
     color: white;
   }
+  .formControl input {
+    background: white;
+  }
 }
 
 .bar {
