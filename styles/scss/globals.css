@@ -160,8 +160,7 @@
   background-color: white;
   color: #111;
   width: 100%;
-  height: 100%;
-  padding: 0.8rem;
+  padding: 0.6rem 0.4rem;
 }
 
 .invoice ul {
@@ -169,8 +168,10 @@
 }
 
 .invoice.view {
-  border: 1px solid black;
-  padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.8rem;
+  font-size: 1.55rem;
 }
 
 .invoice-header {
@@ -201,11 +202,18 @@
 table {
   margin: 7.5vh 0;
   width: 100%;
-  text-align: left;
 }
 
 table tr {
-  height: 2rem;
+  text-align: left;
+  vertical-align: top;
+  margin: auto;
+  height: 3rem;
+}
+
+table tr th {
+  text-align: left;
+  vertical-align: top;
 }
 
 table .hide-on-show {
@@ -285,6 +293,9 @@ table .hide-on-show.true {
   .submit-btn {
     border-color: white;
     color: white;
+  }
+  .formControl input {
+    background: white;
   }
 }
 
