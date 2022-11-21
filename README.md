@@ -12,7 +12,7 @@
 </details>
 
 ### About The Project
-This is an invoice maker built with Next JS and Sass (a CSS preprocessor).
+This is an invoice maker built with Next JS and Sass (a CSS preprocessor). It takes information from the user and uses it to make the invoice. The user can then download the invoice to send to a client.
 
 ### Getting Started
 This a brief guide on setting this project up locally.
